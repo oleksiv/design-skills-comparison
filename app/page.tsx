@@ -364,6 +364,19 @@ export default function Home() {
             written for.
           </li>
         </ul>
+
+        <footer className="mt-16 border-t border-zinc-200 pt-6 text-sm leading-6 text-zinc-600">
+          Experiment run by{" "}
+          <a
+            href="https://oleksiv.com"
+            className="font-medium text-zinc-900 underline decoration-zinc-300 underline-offset-4 hover:decoration-zinc-900"
+          >
+            Sviatoslav Oleksiv
+          </a>
+          , a product engineer who builds production software with AI coding
+          agents. The pages were built by Claude Opus 5.5 and are shown as
+          generated.
+        </footer>
       </div>
     </main>
   );

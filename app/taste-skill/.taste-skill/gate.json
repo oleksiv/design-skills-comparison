@@ -1,0 +1,514 @@
+{
+ "start": "2026-11-11T08:40:26.292Z",
+ "round": 2,
+ "idle": 0,
+ "errors": 0,
+ "status": "fail",
+ "history": [
+  {
+   "at": "2026-11-11T09:40:18.924Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 1,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-11T09:42:33.924Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 1,
+   "round": 2,
+   "reused": true,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-11T09:52:57.555Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 1,
+   "round": 2,
+   "reused": true,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-11T09:53:21.915Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 1,
+   "round": 2,
+   "reused": true,
+   "stopHookActive": false
+  }
+ ],
+ "max": 3,
+ "marker": {
+  "page": null,
+  "url": "http://localhost:3000/taste-skill",
+  "root": null,
+  "kind": "software",
+  "category": "booking and scheduling software for small fitness studios",
+  "primary": "Start free trial",
+  "rounds": 3,
+  "start": "2026-11-11T08:40:26.292Z",
+  "by": "gate.mjs --start"
+ },
+ "manual": true,
+ "roundKey": "3027f2b4e6169efb:f3e12227",
+ "roundFree": false,
+ "idleFree": false,
+ "blockKey": null,
+ "fp": "3027f2b4e6169efb",
+ "page": "http://localhost:3000/taste-skill",
+ "found": {
+  "fails": [
+   {
+    "check": "copy-headline",
+    "where": "h1#hero-h \"Fill every class without living in your \"",
+    "msg": "\"Fill every class without living in your inbox\" does not name what is sold (booking and scheduling software for small fitness studios, booking, scheduling, software, from flags); only the line under it does",
+    "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "copy-headline"
+    ],
+    "wheres": [
+     "h1#hero-h \"Fill every class without living in your \""
+    ]
+   },
+   {
+    "check": "effect-kind",
+    "where": "section#how",
+    "msg": "1 [data-moment] mark that never runs: iris-opens on section#how (assets/moments/iris-opens/moment.js was never loaded); a moment is judged as one only when it runs",
+    "fix": "load assets/moments/moments.js (system.js does it for a page with [data-moment]) and keep the dealt id, or take the data-moment mark off the section",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "effect-kind"
+    ],
+    "wheres": [
+     "section#how"
+    ]
+   },
+   {
+    "check": "focus-visible",
+    "where": "script:nth-of-type(6) > nextjs-portal",
+    "msg": "Tab stop 19, nextjs-portal \"\": the focus lands on something you cannot see",
+    "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "focus-visible"
+    ],
+    "wheres": [
+     "script:nth-of-type(6) > nextjs-portal"
+    ]
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#pricing / section#faq",
+    "msg": "312px between these sections, +64% against the median 190px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "section-gaps"
+    ],
+    "wheres": [
+     "section#pricing / section#faq"
+    ]
+   }
+  ],
+  "warns": [
+   {
+    "check": "flush",
+    "where": "section#how > div.pointer-events-none.absolute > div.absolute.inset-0",
+    "msg": "its first line sits 17px under the top edge of section#how, where the ground changes",
+    "fix": "give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cut-text",
+    "where": "div.hidden > div.relative.col-span-7 > div.grid > span.h-11.pt-1:nth-of-type(10) \"16:00\"",
+    "msg": "cut 3px at the bottom by the overflow of section#proof > div.wrap.mx-auto > div.ui.app > div.relative.min-h-0:nth-of-type(2): a fragment run out through its panel's edge",
+    "fix": "give the text room: no overflow clipping a line, no line past its box",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cut-text",
+    "where": "div.absolute.inset-x-6 > ul.mt-3.grid > li.flex.items-center:nth-of-type(3) > span.w-8 \"Wed\"",
+    "msg": "cut 13px at the bottom by the overflow of div.wrap.mx-auto > ol.mt-8.grid > li.card.card--open:nth-of-type(1) > div.panel.relative: a fragment run out through its panel's edge (and 5 more like it: \"18:00\", \"Bouldering Intro\", \"Link in bio · on your si\", \"Waitlist 2 waiting\", ...)",
+    "fix": "give the text room: no overflow clipping a line, no line past its box",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-headings",
+    "where": "div.wrap.mx-auto > ol.mt-8.grid > li.card.card--open:nth-of-type(3) > h3.mt-4.leading-7 \"Teach\"",
+    "msg": "\"Teach\" names no product, part, place or section (the one brand line a page may have)",
+    "fix": "name the thing in every heading: the product, a part, the place or a section noun",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#features / section#how",
+    "msg": "uneven space at the edge of a band: 278px outside its edge, 17px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#how / section#pricing",
+    "msg": "uneven space at the edge of a band: 106px outside its edge, 202px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "hole",
+    "where": "section#pricing > div.wrap.mx-auto > div.grid.grid-cols-12 > article.card.col-span-12:nth-of-type(1) \"Studio $39 per month One location Unlimi\"",
+    "msg": "an empty band 256px tall across the card (38% of its height), with content above and below it",
+    "fix": "close the empty space: move the content together, or give the space the visual it lacks",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "hole",
+    "where": "section#pricing > div.wrap.mx-auto > div.grid.grid-cols-12 > article.card.col-span-12:nth-of-type(2) \"Collective $89 per month Up to five loca\"",
+    "msg": "an empty band 256px tall across the card (38% of its height), with content above and below it",
+    "fix": "close the empty space: move the content together, or give the space the visual it lacks",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav-labels",
+    "where": "header.nav.fixed > div.wrap.mx-auto > a.nav__logo.flex \"Mooring\"",
+    "msg": "\"Mooring\" opens a section headed \"Fill every class without living in your inbox\"",
+    "fix": "name each nav link after the heading of the section it opens",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "tab-wrap",
+    "where": "button#feat-tab-2 \"Memberships and passes\"",
+    "msg": "the row of 3 tabs wraps onto 3 lines and leaves \"Memberships and passes\" alone on the last",
+    "fix": "fit the tabs on one line at this width (shorter labels, a scrolling row), or let them stack evenly",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fade-cut",
+    "where": "ul > li.grid.items-center:nth-of-type(9) > span.min-w-0 > span.block.truncate:nth-of-type(2) \"21:00 · Wall A\"",
+    "msg": "a line of div.overflow-hidden.rounded-xl fades out under its edge (\"21:00 · Wall A\"): drawn at a fraction of #5c594f on #f5f2eb, half-erased",
+    "fix": "fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fade-cut",
+    "where": "ul > li.flex.items-center:nth-of-type(4) > span.min-w-0.flex-1 > span.block.text-xs \"20:30 · 60 min\"",
+    "msg": "a line of div.absolute.inset-x-6 fades out under its edge (\"20:30 · 60 min\"): drawn at a fraction of #5c594f on #f5f2eb, half-erased",
+    "fix": "fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fade-cut",
+    "where": "ul.mt-3 > li.flex.items-center:nth-of-type(8) > span.min-w-0.flex-1 > span.block.truncate:nth-of-type(2) \"10-class pack\"",
+    "msg": "a line of div.absolute.inset-x-6 fades out under its edge (\"10-class pack\"): drawn at a fraction of #5c594f on #f5f2eb, half-erased",
+    "fix": "fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "action-count",
+    "where": "footer#contact > div.wrap.mx-auto > div.closing__cta > a.inline-flex.h-11",
+    "msg": "the main action \"Start free trial\" is on 5 buttons and links: the nav, the hero and the closing call carry it; elsewhere a section has its own action",
+    "fix": "the main action in the nav, the hero and the closing call; give the other sections their own action",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "share-meta",
+    "where": "head",
+    "msg": "the head lacks og:image: a shared link shows no picture or title of its own",
+    "fix": "copy the head block of starter.html: og tags, twitter:card, the icon and theme-color (references/system.md, Head)",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-height",
+    "where": "footer#contact \"Open your next class for booking todaySt\"",
+    "msg": "the section is 892px tall (1 screens), 8px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)",
+    "fix": "set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "nav",
+    "where": "header.nav.fixed > div.wrap.mx-auto > div.ml-auto.flex > button.nav__toggle.grid",
+    "msg": "the nav is lopsided: its last item ends 12px inside the content's edge (366px), while its first starts on the other edge",
+    "fix": "start the nav's first item and end its last on the content's two edges",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cut-text",
+    "where": "ul > li.grid.items-center:nth-of-type(4) > span.min-w-0 > span.block.truncate:nth-of-type(1) \"Bouldering Intro\"",
+    "msg": "cut 10px at the bottom by the overflow of section.hero.relative > div.wrap.mx-auto > div.hero-text.flex > div.hero__art.relative: a fragment run out through its panel's edge",
+    "fix": "give the text room: no overflow clipping a line, no line past its box",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cut-text",
+    "where": "ul > li.flex.items-center:nth-of-type(7) > span.min-w-0.flex-1 > span.block.truncate:nth-of-type(2) \"19:30 · Paula · Studio 2\"",
+    "msg": "cut 8px at the bottom by the overflow of section#proof > div.wrap.mx-auto > div.ui.app > div.relative.min-h-0:nth-of-type(2): a fragment run out through its panel's edge",
+    "fix": "give the text room: no overflow clipping a line, no line past its box",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cut-text",
+    "where": "ul > li.flex.items-center:nth-of-type(1) > span.min-w-0.flex-1 > span.block.truncate \"Reformer Basics\"",
+    "msg": "cut 15px at the bottom by the overflow of section#features > div.wrap.mx-auto > div.grid.grid-cols-12 > div.relative.col-span-12: a fragment run out through its panel's edge",
+    "fix": "give the text room: no overflow clipping a line, no line past its box",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cut-text",
+    "where": "ul.mt-3 > li.flex.items-center:nth-of-type(9) > span.min-w-0.flex-1 > span.block.truncate:nth-of-type(1) \"Lea Brandt\"",
+    "msg": "cut 12px at the bottom by the overflow of div.wrap.mx-auto > div.grid.grid-cols-12 > div.col-span-12 > div.frame.relative: a fragment run out through its panel's edge",
+    "fix": "give the text room: no overflow clipping a line, no line past its box",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "cta",
+    "where": "section#how \"How it works\"",
+    "msg": "a section over 1.5 screens long with no link or button in it",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "text-contrast",
+    "where": "ul > li.flex.items-center:nth-of-type(3) > span.min-w-0.flex-1 > span.block.truncate \"Yin and Breath\"",
+    "msg": "9 lines of text in drawn mocks read under 4.5:1 (2 colour pairs), the worst \"Yin and Breath\" in #2a2a26 on #2a2a26 at 1:1",
+    "fix": "lift the mocks' muted text (labels, meta, initials) to 4.5:1 on their own panel, or set it larger",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "main#top > section.hero.relative / section#proof",
+    "msg": "111px between these sections, -42% against the median 190px",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "section-gaps",
+    "where": "section#faq / footer#contact",
+    "msg": "527px between these sections, +42% against the median 372px of gaps at a change of ground",
+    "fix": "use one gap between sections (all within 25% of each other)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "fade-cut",
+    "where": "div:nth-of-type(1) > ul > li.flex.items-center:nth-of-type(7) > span.inline-flex.h-6 \"2 spots\"",
+    "msg": "a line of div:nth-of-type(1) fades out under its edge (\"2 spots\"): drawn at a fraction of #4f6238 on #dcddd0, half-erased",
+    "fix": "fit the mock's rows inside its panel (fewer rows, a taller panel), or end the fade below the last whole row: no row half-erased",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "grounds",
+    "where": "section#how \"How it works 1 Add your schedule Import \"",
+    "msg": "4 flat grounds across the page (#ddd6c6 section x5, #2a2a26 section, #d2cab8 band x2, #cdd6c6 footer): three at most (the base, a surface, an inverse)",
+    "fix": "three flat grounds at most (the base, one surface, one inverse): lay the other bands on one of them",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "visual-caption",
+    "where": "div.min-w-0.flex-1 > ul > li.grid.items-center:nth-of-type(4) > span.inline-flex.h-6 \"Full\"",
+    "msg": "a muted 12px line of 2 rows sits 0px under the effect (painterly-landscape): it reads as a caption: \"Full\"; no caption or description under any image, render or visual (house rule)",
+    "fix": "take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "empty-area",
+    "where": "footer#contact \"Open your next class for booking today\"",
+    "msg": "43% of the section is empty: 304px of empty rows between its content, in its 700px of rows (WARN over 35%, FAIL over 50%)",
+    "fix": "fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)",
+    "widths": [
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "copy-stat-strip",
+    "msg": "stat strip x1",
+    "fix": "a strip only of figures the brief gives (a price, hours, a count); otherwise put each number in the sentence it proves, or leave it out (references/copy-tells.md)",
+    "widths": [],
+    "from": "copy",
+    "where": "copy x1: \"3.4M / 38% / 6 hours\"",
+    "exact": false
+   }
+  ],
+  "crashed": [],
+  "seconds": {
+   "consistency": 254,
+   "layout": 13
+  }
+ },
+ "open": [
+  {
+   "check": "section-gaps",
+   "where": "section#pricing / section#faq",
+   "msg": "312px between these sections, +64% against the median 190px",
+   "fix": "use one gap between sections (all within 25% of each other)",
+   "widths": [
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "section-gaps"
+   ],
+   "wheres": [
+    "section#pricing / section#faq"
+   ]
+  }
+ ],
+ "waived": [
+  {
+   "check": "copy-headline",
+   "where": "h1#hero-h \"Fill every class without living in your \"",
+   "msg": "\"Fill every class without living in your inbox\" does not name what is sold (booking and scheduling software for small fitness studios, booking, scheduling, software, from flags); only the line under it does",
+   "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "copy-headline"
+   ],
+   "wheres": [
+    "h1#hero-h \"Fill every class without living in your \""
+   ],
+   "reason": "the brief fixes the headline verbatim (Fill every class without living in your inbox); the category is named in the sub-line and the title"
+  },
+  {
+   "check": "effect-kind",
+   "where": "section#how",
+   "msg": "1 [data-moment] mark that never runs: iris-opens on section#how (assets/moments/iris-opens/moment.js was never loaded); a moment is judged as one only when it runs",
+   "fix": "load assets/moments/moments.js (system.js does it for a page with [data-moment]) and keep the dealt id, or take the data-moment mark off the section",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "effect-kind"
+   ],
+   "wheres": [
+    "section#how"
+   ],
+   "reason": "the dealt iris-opens moment runs, ported into the page's own React component: the brief allows Tailwind utilities only, so the kit's moment.css and loader cannot be linked and the checker never sees assets/moments/iris-opens/moment.js load"
+  },
+  {
+   "check": "focus-visible",
+   "where": "script:nth-of-type(6) > nextjs-portal",
+   "msg": "Tab stop 19, nextjs-portal \"\": the focus lands on something you cannot see",
+   "fix": "keep the kit's ring (system.css :focus-visible, 2px in --action, there at once); a control that hides itself shows on focus",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "focus-visible"
+   ],
+   "wheres": [
+    "script:nth-of-type(6) > nextjs-portal"
+   ],
+   "reason": "the Next.js dev-server indicator (nextjs-portal) the shared dev server injects; it is not part of the page and never ships in a build"
+  }
+ ],
+ "warnCount": 30,
+ "at": "2026-11-11T09:53:21.915Z"
+}

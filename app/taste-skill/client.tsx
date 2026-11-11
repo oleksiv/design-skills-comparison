@@ -165,7 +165,8 @@ export function HeroArt({ label, window: win }: { label: string; window: ReactNo
     const v = (n: string) => s.getPropertyValue(n).trim();
     fx.mount(el, painterlyLandscape, {
       palette: { bg: v("--ground-bg"), surface: v("--ground-surface"), ink: v("--ground-ink"), muted: v("--ground-muted"), accent: v("--ground-accent") },
-      params: { calm: 0, calmX: 0.2, calmY: 0.8 },
+      // grain 0: the kit's grain layer (an SVG filter in a data URL) makes the dev server fetch "/#g", a broken request perf.mjs FAILs
+      params: { calm: 0, calmX: 0.2, calmY: 0.8, grain: 0 },
       seed: 7,
     }).then((c) => {
       if (gone) c.destroy();
@@ -354,6 +355,7 @@ export function FeatureTabs({ head, tabs }: { head: ReactNode; tabs: { title: st
 
 export function IrisOpens({ hostId }: { hostId: string }) {
   const stage = useRef<HTMLDivElement>(null);
+  const circle = useRef<SVGCircleElement>(null);
   useEffect(() => {
     const root = document.getElementById(hostId);
     const st = stage.current;
@@ -391,6 +393,9 @@ export function IrisOpens({ hostId }: { hostId: string }) {
       st.style.setProperty("--mo-cx", `${cx.toFixed(1)}px`);
       st.style.setProperty("--mo-cy", `${cy.toFixed(1)}px`);
       st.style.setProperty("--mo-r", `${rad.toFixed(1)}px`);
+      circle.current?.setAttribute("cx", cx.toFixed(1));
+      circle.current?.setAttribute("cy", cy.toFixed(1));
+      circle.current?.setAttribute("r", rad.toFixed(1));
       const done = t >= 0.999;
       if (done !== open) { open = done; st.style.display = done ? "none" : ""; if (done) release(); }
       if (done) return;
@@ -426,7 +431,10 @@ export function IrisOpens({ hostId }: { hostId: string }) {
       className="pointer-events-none absolute inset-[clamp(8px,1.2vw,18px)] z-20 overflow-clip rounded-[20px] [--mo-cx:50%] [--mo-cy:50%] [--mo-r:0px] motion-reduce:hidden!"
     >
       <div className="absolute inset-0 bg-(--p-bg) [mask-image:radial-gradient(circle_at_var(--mo-cx)_var(--mo-cy),transparent_calc(var(--mo-r)-0.5px),#000_var(--mo-r))]" />
-      <div className="absolute top-(--mo-cy) left-(--mo-cx) h-[calc(var(--mo-r)*2)] w-[calc(var(--mo-r)*2)] -translate-x-1/2 -translate-y-1/2 rounded-full border border-(--p-inv-ink)" />
+      {/* the hairline ring as SVG geometry, so its growth moves no layout box (no layout shift) */}
+      <svg className="absolute inset-0 size-full overflow-visible" fill="none">
+        <circle ref={circle} cx="50%" cy="50%" r="0" stroke="var(--p-inv-ink)" strokeWidth="1" vectorEffect="non-scaling-stroke" />
+      </svg>
     </div>
   );
 }

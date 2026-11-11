@@ -427,7 +427,7 @@ function PaymentsHub() {
   const lines = ["M150 50 C190 50 190 120 222 120", "M150 120 L222 120", "M150 190 C190 190 190 120 222 120", "M298 120 L340 120"];
   return (
     <div
-      className="frame group relative mt-8 aspect-square overflow-hidden rounded-[20px] bg-(--ground-bg) sm:aspect-[4/1] lg:mt-10 lg:aspect-[3/4]"
+      className="frame group relative mt-8 aspect-[4/5] overflow-hidden rounded-[20px] bg-(--ground-bg) sm:aspect-[4/1] lg:mt-10 lg:aspect-[3/4]"
       role="img"
       aria-label="Payments from Stripe or Square and members from a CSV file going into Mooring, with payouts to the studio's own account"
     >
@@ -709,13 +709,13 @@ export default function Page() {
                 >
                   <span className="grid size-7 place-items-center rounded-full border border-(--inv-line-strong) text-[13px] font-medium tabular-nums">{i + 1}</span>
                   <h3 className="mt-4 text-[18px] leading-7 font-medium lg:text-[20px]">{s.title}</h3>
-                  <p className="mt-1 text-base leading-[26px]">{s.text}</p>
+                  <p className="mt-1 text-base leading-[26px] lg:min-h-[52px]">{s.text}</p>
                   <div
-                    className="panel relative mt-5 h-[184px] overflow-hidden rounded-[20px] bg-(--ground-bg) sm:col-start-2 sm:row-span-3 sm:row-start-1 sm:mt-0 sm:h-[168px] lg:mt-5 lg:h-[160px] xl:h-[192px]"
+                    className="panel relative mt-5 h-[184px] overflow-hidden rounded-[20px] bg-(--ground-bg) sm:col-start-2 sm:row-span-3 sm:row-start-1 sm:mt-0 sm:h-[168px] lg:mt-5 lg:h-[160px] xl:h-[224px]"
                     role="img"
                     aria-label={s.label}
                   >
-                    {s.panel}
+                    <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,#000_calc(100%-56px),transparent)]">{s.panel}</div>
                   </div>
                 </li>
               ))}
