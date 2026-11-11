@@ -53,6 +53,7 @@ Use this copy verbatim and keep the sections in this order. Everything visual is
 
 Technical constraints:
 - Next.js App Router with Tailwind CSS v4, both already installed.
+- Style everything with Tailwind utility classes. No hand-written CSS: no CSS modules, no style blocks, no stylesheets with your own selectors. The one exception is what utilities cannot express: CSS variables for theme values and @keyframes.
 - Put everything in app/{slug}/, with the page at app/{slug}/page.tsx. Do not edit files outside that folder.
 - No external images or stock photos. Any visuals must be CSS, SVG or code.
 - Fonts may be loaded with next/font.

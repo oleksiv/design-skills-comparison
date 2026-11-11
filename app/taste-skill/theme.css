@@ -1,0 +1,71 @@
+/* Theme values and keyframes only (brief: no hand-written CSS rules). Every style is a Tailwind
+   utility in the markup. Palette dealt by tasteskill: cool-grey-cobalt; lit card grounds: sky, sand, sage. */
+:root {
+  --ts-bg: #eef0f3;
+  --ts-surface: #e2e5ea;
+  --ts-ink: #0b0c0e;
+  --ts-text: color-mix(in oklab, #0b0c0e 84%, #eef0f3);
+  --ts-muted: #5d6470;
+  --ts-line: color-mix(in oklab, #0b0c0e 11%, transparent);
+  --ts-line-strong: color-mix(in oklab, #0b0c0e 20%, transparent);
+  --ts-action: #1f2de6;
+  --ts-action-ink: #ffffff;
+  --ts-action-hover: color-mix(in oklab, #1f2de6 86%, #0b0c0e);
+  --ts-tonal: color-mix(in oklab, #0b0c0e 8%, #eef0f3);
+  --ts-tonal-hover: color-mix(in oklab, #0b0c0e 14%, #eef0f3);
+
+  --ts-inv-bg: #0e1014;
+  --ts-inv-ink: #eef0f3;
+  --ts-inv-muted: #9aa2ae;
+  --ts-inv-line: color-mix(in oklab, #eef0f3 14%, transparent);
+  --ts-inv-hover: color-mix(in oklab, #eef0f3 86%, #0e1014);
+
+  --ts-sky: #c6d3df;
+  --ts-sand: #d9ccb7;
+  --ts-sage: #cdd6c6;
+
+  --ts-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ts-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* hero entrance (once on load) */
+@keyframes ts-rise {
+  from { opacity: 0; transform: translateY(0.3em); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes ts-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes ts-settle {
+  from { transform: scale(0.98); }
+  to { transform: none; }
+}
+
+/* counter-rolls moment: each digit strip rolls from the real figure back to it */
+@keyframes ts-roll {
+  from { transform: translateY(0); }
+  to { transform: translateY(var(--roll)); }
+}
+
+/* card and window loops, 3.2 s: the earlier state, the change, the finished picture held */
+@keyframes ts-old {
+  0%, 30% { opacity: 1; }
+  36%, 92% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes ts-new {
+  0%, 30% { opacity: 0; }
+  36%, 92% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes ts-fill {
+  0%, 30% { transform: scaleX(var(--from)); }
+  42%, 92% { transform: scaleX(1); }
+  100% { transform: scaleX(var(--from)); }
+}
+@keyframes ts-arrive {
+  0%, 30% { opacity: 0; transform: translateY(-8px); }
+  38%, 92% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: translateY(-8px); }
+}

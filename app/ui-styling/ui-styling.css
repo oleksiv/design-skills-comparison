@@ -1,0 +1,48 @@
+/*
+  Mooring / "Slack Water"
+  The still moment between tides: sand-paper ground, harbor-ink type, one buoy-coral accent.
+  Light type at large sizes, small mono chart markers, tide lines and dot grids as the only ornament.
+
+  This file holds only what utilities cannot express: the theme-token mapping and keyframes.
+  Token values themselves are set with arbitrary-property utilities on the wrapper in layout.tsx.
+*/
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities) source("./");
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-tide: var(--tide);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  --font-marker: var(--font-mono-marker), ui-monospace, monospace;
+
+  --animate-accordion-down: accordion-down 0.22s ease-out;
+  --animate-accordion-up: accordion-up 0.22s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}

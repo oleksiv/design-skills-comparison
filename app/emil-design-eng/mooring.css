@@ -1,0 +1,73 @@
+/* Keyframes only: everything else is Tailwind utilities in the markup. */
+
+/* Hero entrance and scroll reveal */
+@keyframes m-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(4px);
+  }
+}
+@keyframes m-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+@keyframes m-answer {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+/* Reduced motion: keep the fade, drop the movement */
+@keyframes m-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Hero demo: a 10s explanatory loop. Each phase is a crossfade between stacked
+   layers; blur(2px) bridges the two states so the eye reads one change.
+   --dy / --ds are zeroed under prefers-reduced-motion. */
+
+/* Leo cancels */
+@keyframes d-leo {
+  0%, 30% { opacity: 1; filter: blur(0); }
+  35%, 94% { opacity: 0; filter: blur(2px); }
+  100% { opacity: 1; filter: blur(0); }
+}
+/* The open spot, briefly */
+@keyframes d-gap {
+  0%, 30% { opacity: 0; filter: blur(2px); }
+  35%, 44% { opacity: 1; filter: blur(0); }
+  50%, 100% { opacity: 0; filter: blur(2px); }
+}
+/* Inverse of the gap: the "Full" badge */
+@keyframes d-full {
+  0%, 30% { opacity: 1; filter: blur(0); }
+  35%, 44% { opacity: 0; filter: blur(2px); }
+  50%, 100% { opacity: 1; filter: blur(0); }
+}
+/* Maya rises from the waitlist into the class */
+@keyframes d-maya {
+  0%, 44% { opacity: 0; filter: blur(2px); transform: translateY(var(--dy)); }
+  50%, 88% { opacity: 1; filter: blur(0); transform: none; }
+  94%, 100% { opacity: 0; filter: blur(2px); transform: none; }
+}
+@keyframes d-wait {
+  0%, 44% { opacity: 1; filter: blur(0); transform: none; }
+  50%, 94% { opacity: 0; filter: blur(2px); transform: translateY(calc(var(--dy) * -1)); }
+  100% { opacity: 1; filter: blur(0); transform: none; }
+}
+@keyframes d-wait-empty {
+  0%, 44% { opacity: 0; }
+  50%, 94% { opacity: 1; }
+  100% { opacity: 0; }
+}
+/* Notification: enters over 500ms, leaves over 300ms. Exit faster than enter. */
+@keyframes d-toast {
+  0%, 50% { opacity: 0; transform: translateY(-8px) scale(var(--ds)); }
+  55%, 84% { opacity: 1; transform: none; }
+  87%, 100% { opacity: 0; transform: translateY(-4px) scale(var(--ds)); }
+}

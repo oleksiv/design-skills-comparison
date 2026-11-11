@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import Link from "next/link";
 
 const skills = [
   {
@@ -112,10 +113,15 @@ export default function Home() {
               {i}
             </span>
             <div className="min-w-0">
-              <p className="font-medium">{skill.name}</p>
+              <Link
+                href={`/${skill.slug}`}
+                className="font-medium underline decoration-zinc-300 underline-offset-4 hover:decoration-zinc-900"
+              >
+                {skill.name}
+              </Link>
               <p className="mt-1 leading-7 text-zinc-700">{skill.note}</p>
               <p className="mt-1 text-sm break-words text-zinc-500">
-                Source: {skill.source} · Page: /{skill.slug}
+                Source: {skill.source}
               </p>
             </div>
           </li>

@@ -1,0 +1,57 @@
+/* Mooring theme values and keyframes only; all styling lives in Tailwind utilities.
+   Color world: a small harbor at first light. Harbor water, salt-bleached
+   sailcloth, manila rope, brass ring, one buoy-red accent for actions. */
+
+:root {
+  /* background: surface elevation */
+  --m-paper: #f3efe6;
+  --m-raised: #fbf9f4;
+  --m-mist: #e3e8e2;
+  --m-water: #173b39;
+  --m-water-deep: #0f2928;
+
+  /* foreground: text hierarchy */
+  --m-ink: #132a28;
+  --m-ink-2: #3e5350;
+  --m-muted: #536460;
+  --m-on-water: #f3efe6;
+  --m-on-water-2: #bfcbc6;
+
+  /* border: separation hierarchy */
+  --m-line: #d9d2c3;
+  --m-line-strong: #b5ab95;
+  --m-line-water: #2f5552;
+
+  /* brand */
+  --m-rope: #cdae72;
+  --m-rope-dark: #9c7f48;
+  --m-brass: #b8913f;
+  --m-buoy: #c43e23;
+  --m-buoy-press: #a5321b;
+}
+
+/* Safety net for the font gate: reveals display text even if JS or the font fails. */
+@keyframes m-reveal {
+  to {
+    opacity: 1;
+  }
+}
+
+/* The one signature move: the class card settles on its line after load. */
+@keyframes m-swing {
+  0% {
+    transform: rotate(-5deg);
+  }
+  35% {
+    transform: rotate(3deg);
+  }
+  60% {
+    transform: rotate(-1.4deg);
+  }
+  80% {
+    transform: rotate(0.5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

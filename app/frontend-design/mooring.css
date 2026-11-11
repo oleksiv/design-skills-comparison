@@ -1,0 +1,17 @@
+/* Only what Tailwind utilities cannot express: the keyframes for the hero timetable.
+   Theme variables are set with arbitrary properties on the page root in page.tsx. */
+
+@keyframes mooring-spot {
+  from {
+    background: transparent;
+    border-color: color-mix(in srgb, var(--ink) 35%, transparent);
+    transform: scale(0.5);
+  }
+}
+
+@keyframes mooring-tag {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
