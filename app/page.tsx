@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import Image from "next/image";
 import Link from "next/link";
+import NumbersTable from "./numbers-table";
 import skills from "./skills.json";
 
 const brief = readFileSync(join(process.cwd(), "brief.md"), "utf8");
@@ -13,8 +14,6 @@ const col = "mx-auto max-w-2xl px-5";
 const h2 = "mt-16 text-2xl font-semibold tracking-tight";
 const p = "mt-4 leading-7 text-zinc-700";
 const list = "mt-4 list-outside space-y-2 pl-5 leading-7 text-zinc-700";
-const th = "px-3 py-2 text-left font-medium text-zinc-500";
-const td = "px-3 py-2 tabular-nums";
 
 export default function Home() {
   return (
@@ -151,38 +150,14 @@ export default function Home() {
 
         <h2 className={h2}>The numbers</h2>
         <p className={p}>
-          What each run cost and what it produced. Lines of code count the
+          What each run cost and what it produced. Click a column heading to
+          sort by it. Lines of code count the
           TypeScript and CSS files in the page&rsquo;s folder.
         </p>
       </div>
 
       <div className="mx-auto mt-6 max-w-4xl overflow-x-auto px-5">
-        <table className="w-full min-w-[40rem] border-collapse text-sm">
-          <thead>
-            <tr className="border-b border-zinc-300">
-              <th className={th}>Skill</th>
-              <th className={th}>Tokens</th>
-              <th className={th}>Time</th>
-              <th className={th}>Tool calls</th>
-              <th className={th}>Files</th>
-              <th className={th}>Lines</th>
-              <th className={th}>Packages</th>
-            </tr>
-          </thead>
-          <tbody>
-            {skills.map((skill) => (
-              <tr key={skill.slug} className="border-b border-zinc-200">
-                <td className="px-3 py-2 font-medium">{skill.name}</td>
-                <td className={td}>{skill.tokens.toLocaleString("en-US")}</td>
-                <td className={td}>{time(skill.seconds)}</td>
-                <td className={td}>{skill.toolCalls}</td>
-                <td className={td}>{skill.files}</td>
-                <td className={td}>{skill.lines.toLocaleString("en-US")}</td>
-                <td className={td}>{skill.deps}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <NumbersTable />
       </div>
 
       <div className={col}>
