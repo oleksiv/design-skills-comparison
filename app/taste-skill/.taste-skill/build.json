@@ -1,0 +1,11 @@
+{
+ "page": null,
+ "url": "http://localhost:3000/taste-skill",
+ "root": null,
+ "kind": "software",
+ "category": "booking and scheduling software for small fitness studios",
+ "primary": "Start free trial",
+ "rounds": 3,
+ "start": "2026-11-11T08:40:26.292Z",
+ "by": "gate.mjs --start"
+}

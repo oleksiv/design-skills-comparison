@@ -1,71 +1,36 @@
-/* Theme values and keyframes only (brief: no hand-written CSS rules). Every style is a Tailwind
-   utility in the markup. Palette dealt by tasteskill: cool-grey-cobalt; lit card grounds: sky, sand, sage. */
+/* Theme values only (the brief allows CSS variables and @keyframes; everything else is Tailwind).
+   Palette moss-sand and the Geist pairing exactly as tasteskill's start.mjs printed them; the lit
+   ground is the dealt "sage"; --ui-* are the kit's window tokens for this palette. */
 :root {
-  --ts-bg: #eef0f3;
-  --ts-surface: #e2e5ea;
-  --ts-ink: #0b0c0e;
-  --ts-text: color-mix(in oklab, #0b0c0e 84%, #eef0f3);
-  --ts-muted: #5d6470;
-  --ts-line: color-mix(in oklab, #0b0c0e 11%, transparent);
-  --ts-line-strong: color-mix(in oklab, #0b0c0e 20%, transparent);
-  --ts-action: #1f2de6;
-  --ts-action-ink: #ffffff;
-  --ts-action-hover: color-mix(in oklab, #1f2de6 86%, #0b0c0e);
-  --ts-tonal: color-mix(in oklab, #0b0c0e 8%, #eef0f3);
-  --ts-tonal-hover: color-mix(in oklab, #0b0c0e 14%, #eef0f3);
+  --p-bg: #ddd6c6; --p-surface: #d2cab8; --p-ink: #2a2a26; --p-muted: #55534b;
+  --p-accent: #4f6238; --p-accent-ink: #ffffff; --p-action: #4f6238; --p-action-ink: #ffffff;
+  --p-inv-bg: #2a2a26; --p-inv-surface: #353430; --p-inv-ink: #ddd6c6; --p-inv-muted: #a39e92;
+  --p-inv-accent: #ddd6c6; --p-inv-accent-ink: #2a2a26; --p-inv-action: #ddd6c6; --p-inv-action-ink: #2a2a26;
+  --display-weight: 500;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.045em;
 
-  --ts-inv-bg: #0e1014;
-  --ts-inv-ink: #eef0f3;
-  --ts-inv-muted: #9aa2ae;
-  --ts-inv-line: color-mix(in oklab, #eef0f3 14%, transparent);
-  --ts-inv-hover: color-mix(in oklab, #eef0f3 86%, #0e1014);
+  --line: color-mix(in oklab, var(--p-ink) 11%, transparent);
+  --line-strong: color-mix(in oklab, var(--p-ink) 20%, transparent);
+  --inv-line: color-mix(in oklab, var(--p-inv-ink) 14%, transparent);
+  --inv-line-strong: color-mix(in oklab, var(--p-inv-ink) 26%, transparent);
+  --action-hover: color-mix(in oklab, var(--p-action), var(--p-ink) 14%);
 
-  --ts-sky: #c6d3df;
-  --ts-sand: #d9ccb7;
-  --ts-sage: #cdd6c6;
+  --ground-bg: #cdd6c6; --ground-surface: #dce3d6; --ground-ink: #262d24; --ground-muted: #535b51; --ground-accent: #6c8e63;
+  --ground-line: color-mix(in oklab, var(--ground-ink) 12%, transparent);
 
-  --ts-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --ts-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
-}
+  --ui-bg: #f5f2eb; --ui-fill: #ece8de; --ui-ink: #2a2a26; --ui-muted: #5c594f;
+  --ui-line: color-mix(in oklab, var(--ui-ink) 9%, transparent);
+  --ui-border: color-mix(in oklab, var(--ui-ink) 13%, transparent);
+  --ui-tint: color-mix(in oklab, var(--p-accent) 14%, var(--ui-bg));
+  --ui-shadow: 0 1px 2px rgb(42 42 38 / 0.08), 0 12px 32px -12px rgb(42 42 38 / 0.28);
 
-/* hero entrance (once on load) */
-@keyframes ts-rise {
-  from { opacity: 0; transform: translateY(0.3em); }
-  to { opacity: 1; transform: none; }
-}
-@keyframes ts-up {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: none; }
-}
-@keyframes ts-settle {
-  from { transform: scale(0.98); }
-  to { transform: none; }
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --ease-enter: cubic-bezier(.22, 1, .36, 1);
 }
 
-/* counter-rolls moment: each digit strip rolls from the real figure back to it */
-@keyframes ts-roll {
-  from { transform: translateY(0); }
-  to { transform: translateY(var(--roll)); }
-}
-
-/* card and window loops, 3.2 s: the earlier state, the change, the finished picture held */
-@keyframes ts-old {
-  0%, 30% { opacity: 1; }
-  36%, 92% { opacity: 0; }
-  100% { opacity: 1; }
-}
-@keyframes ts-new {
-  0%, 30% { opacity: 0; }
-  36%, 92% { opacity: 1; }
-  100% { opacity: 0; }
-}
-@keyframes ts-fill {
-  0%, 30% { transform: scaleX(var(--from)); }
-  42%, 92% { transform: scaleX(1); }
-  100% { transform: scaleX(var(--from)); }
-}
-@keyframes ts-arrive {
-  0%, 30% { opacity: 0; transform: translateY(-8px); }
-  38%, 92% { opacity: 1; transform: none; }
-  100% { opacity: 0; transform: translateY(-8px); }
+/* a pulse running along a diagram line (stroke-dashoffset), one 3.2 s cycle */
+@keyframes ts-pulse {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -220; }
 }

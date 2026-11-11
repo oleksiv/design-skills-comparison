@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-11T10:30:00Z",
+  "title": "Design System: Mooring",
+  "extensions": {
+    "colorMeta": {
+      "aubergine-upholstery": { "role": "primary", "displayName": "Aubergine Upholstery", "canonical": "oklch(0.31 0.095 337)", "tonalRamp": ["oklch(0.15 0.05 337)", "oklch(0.22 0.07 337)", "oklch(0.31 0.095 337)", "oklch(0.42 0.11 337)", "oklch(0.55 0.1 337)", "oklch(0.68 0.08 337)", "oklch(0.83 0.045 337)", "oklch(0.95 0.015 337)"] },
+      "spring-yellow": { "role": "primary", "displayName": "Spring Yellow", "canonical": "oklch(0.86 0.16 92)", "tonalRamp": ["oklch(0.3 0.06 85)", "oklch(0.45 0.1 85)", "oklch(0.6 0.13 85)", "oklch(0.74 0.16 75)", "oklch(0.86 0.16 92)", "oklch(0.9 0.15 95)", "oklch(0.94 0.09 95)", "oklch(0.97 0.04 95)"] },
+      "spring-red": { "role": "secondary", "displayName": "Spring Red (heavy)", "canonical": "oklch(0.6 0.2 25)", "tonalRamp": ["oklch(0.25 0.08 25)", "oklch(0.35 0.12 25)", "oklch(0.47 0.17 25)", "oklch(0.6 0.2 25)", "oklch(0.7 0.16 25)", "oklch(0.8 0.1 25)", "oklch(0.89 0.05 25)", "oklch(0.95 0.02 25)"] },
+      "spring-green": { "role": "secondary", "displayName": "Spring Green", "canonical": "oklch(0.62 0.15 155)", "tonalRamp": ["oklch(0.25 0.06 155)", "oklch(0.35 0.09 155)", "oklch(0.48 0.12 155)", "oklch(0.62 0.15 155)", "oklch(0.72 0.12 155)", "oklch(0.81 0.08 155)", "oklch(0.89 0.04 155)", "oklch(0.95 0.02 155)"] },
+      "spring-blue": { "role": "secondary", "displayName": "Spring Blue", "canonical": "oklch(0.58 0.15 250)", "tonalRamp": ["oklch(0.24 0.07 250)", "oklch(0.34 0.1 250)", "oklch(0.46 0.13 250)", "oklch(0.58 0.15 250)", "oklch(0.69 0.12 250)", "oklch(0.79 0.08 250)", "oklch(0.88 0.04 250)", "oklch(0.95 0.02 250)"] },
+      "aluminium": { "role": "neutral", "displayName": "Aluminium", "canonical": "oklch(0.945 0.004 300)", "tonalRamp": ["oklch(0.21 0.03 335)", "oklch(0.36 0.03 335)", "oklch(0.47 0.015 320)", "oklch(0.62 0.01 300)", "oklch(0.8 0.008 300)", "oklch(0.885 0.006 300)", "oklch(0.945 0.004 300)", "oklch(0.98 0.002 300)"] },
+      "steel": { "role": "neutral", "displayName": "Steel", "canonical": "oklch(0.47 0.015 320)" },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "oklch(0.21 0.03 335)" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Nameplate", "purpose": "Hero and closing headlines only; Archivo at wdth 125, weight 900." },
+      "headline": { "displayName": "Section", "purpose": "Section headings; expanded black." },
+      "title": { "displayName": "Title", "purpose": "Feature names, step leads, plan names; semi-expanded." },
+      "body": { "displayName": "Body", "purpose": "Descriptions and answers at normal width, 48 to 60ch." },
+      "label": { "displayName": "Stamped label", "purpose": "Spring bar readout only; condensed caps." }
+    },
+    "shadows": [
+      { "name": "carriage", "value": "0 24px 40px -24px oklch(0.2 0.06 335 / 0.7)", "purpose": "Under aubergine upholstery panels." },
+      { "name": "button", "value": "0 6px 14px -6px oklch(0.15 0.04 335 / 0.6), inset 0 -2px 0 oklch(0.7 0.15 80 / 0.6)", "purpose": "Primary buttons." },
+      { "name": "rail-highlight", "value": "inset 0 1px 0 oklch(1 0 0 / 0.8)", "purpose": "Aluminium rails and the light pricing panel." }
+    ],
+    "motion": [
+      { "name": "spring-stretch", "value": "700ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "A spring hooking on or releasing; the page's one authored motion." },
+      { "name": "state", "value": "200ms ease-out", "purpose": "Button hover and press." },
+      { "name": "hook-turn", "value": "300ms ease-out", "purpose": "FAQ hook rotating and filling when opened." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Every Start free trial action, on either ground.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Start free trial</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 9999px; background: oklch(0.86 0.16 92); color: oklch(0.21 0.03 335); font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; box-shadow: 0 6px 14px -6px oklch(0.15 0.04 335 / 0.6), inset 0 -2px 0 oklch(0.7 0.15 80 / 0.6); transition: transform 200ms ease-out, background-color 200ms ease-out; } .ds-btn-primary:hover { background: oklch(0.9 0.15 95); } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(0.31 0.095 337); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button on Upholstery",
+      "kind": "button",
+      "refersTo": "button-ghost-on-upholstery",
+      "description": "Secondary action inside an aubergine panel.",
+      "html": "<div class=\"ds-uph-demo\"><a class=\"ds-btn-ghost\" href=\"#\">See how it works</a></div>",
+      "css": ".ds-uph-demo { background: oklch(0.31 0.095 337); padding: 24px; border-radius: 2rem; } .ds-btn-ghost { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border-radius: 9999px; border: 2px solid oklch(0.83 0.045 335); color: oklch(0.96 0.015 335); font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; text-decoration: none; transition: background-color 200ms ease-out, border-color 200ms ease-out; } .ds-btn-ghost:hover { background: oklch(0.22 0.07 335); border-color: oklch(0.96 0.015 335); } .ds-btn-ghost:focus-visible { outline: 2px solid oklch(0.86 0.16 92); outline-offset: 3px; }"
+    },
+    {
+      "name": "Header Rail",
+      "kind": "nav",
+      "refersTo": "rail",
+      "description": "Aluminium pill rail carrying wordmark, links and the primary action.",
+      "html": "<nav class=\"ds-rail\"><span class=\"ds-mark\">Mooring</span><span class=\"ds-links\"><a href=\"#\">Features</a><a href=\"#\">Pricing</a><a href=\"#\">FAQ</a></span></nav>",
+      "css": ".ds-rail { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 10px 20px; border-radius: 9999px; background: oklch(0.885 0.006 300); box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.8); font-family: Archivo, sans-serif; color: oklch(0.21 0.03 335); } .ds-mark { font-weight: 900; font-stretch: 125%; font-size: 20px; letter-spacing: -0.02em; } .ds-links { display: flex; gap: 24px; font-size: 15px; font-weight: 500; } .ds-links a { color: inherit; text-decoration: none; text-underline-offset: 4px; text-decoration-thickness: 2px; text-decoration-color: oklch(0.31 0.095 337); } .ds-links a:hover { text-decoration-line: underline; }"
+    },
+    {
+      "name": "Upholstery Panel",
+      "kind": "card",
+      "refersTo": "upholstery-panel",
+      "description": "The carriage: a full-width aubergine field for the page's biggest statements.",
+      "html": "<section class=\"ds-uph\"><h2>Open your next class for booking today</h2></section>",
+      "css": ".ds-uph { background: oklch(0.31 0.095 337); color: oklch(0.96 0.015 335); border-radius: 2rem; padding: 56px 48px; box-shadow: 0 24px 40px -24px oklch(0.2 0.06 335 / 0.7); font-family: Archivo, sans-serif; } .ds-uph h2 { margin: 0; font-weight: 900; font-stretch: 125%; font-size: 40px; line-height: 1; letter-spacing: -0.035em; }"
+    },
+    {
+      "name": "Spring and Hook",
+      "kind": "custom",
+      "refersTo": "hook-booked",
+      "description": "One spot in a class: a taut tension-coloured spring on an ink hook when booked, a slack steel spring over a dashed hook when open.",
+      "html": "<div class=\"ds-springs\"><span class=\"ds-spot\"><svg class=\"ds-coil ds-taut\" viewBox=\"0 0 16 100\" preserveAspectRatio=\"none\"><path d=\"M8 0 V8 L14 11.5 L2 15 L14 18.5 L2 22 L14 25.5 L2 29 L14 32.5 L2 36 L14 39.5 L2 43 L14 46.5 L2 50 L14 53.5 L2 57 L14 60.5 L2 64 L14 67.5 L2 71 L14 74.5 L2 78 L14 81.5 L2 85 L14 88.5 L2 92 L8 92 V100\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" vector-effect=\"non-scaling-stroke\"/></svg><span class=\"ds-hook\">MR</span></span><span class=\"ds-spot\"><svg class=\"ds-coil ds-slack\" viewBox=\"0 0 16 100\" preserveAspectRatio=\"none\"><path d=\"M8 0 V8 L14 11.5 L2 15 L14 18.5 L2 22 L14 25.5 L2 29 L14 32.5 L2 36 L14 39.5 L2 43 L14 46.5 L2 50 L14 53.5 L2 57 L14 60.5 L2 64 L14 67.5 L2 71 L14 74.5 L2 78 L14 81.5 L2 85 L14 88.5 L2 92 L8 92 V100\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" vector-effect=\"non-scaling-stroke\"/></svg><span class=\"ds-hook ds-open\">+</span></span></div>",
+      "css": ".ds-springs { display: flex; gap: 32px; padding: 0 16px; } .ds-spot { display: flex; flex-direction: column; align-items: center; height: 128px; } .ds-coil { width: 16px; transition: height 700ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-taut { height: calc(100% - 28px); color: oklch(0.6 0.2 25); } .ds-slack { height: 40px; color: oklch(0.47 0.015 320); } .ds-hook { margin-top: auto; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 9999px; border: 2px solid oklch(0.21 0.03 335); background: oklch(0.21 0.03 335); color: oklch(0.945 0.004 300); font: 700 11px Archivo, sans-serif; } .ds-open { border-style: dashed; border-color: oklch(0.47 0.015 320); background: oklch(0.945 0.004 300); color: oklch(0.47 0.015 320); } .ds-spot:hover .ds-slack { height: 56px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Spring Bar",
+    "overview": "The page is a Pilates reformer seen from the side. Aubergine upholstery is the carriage that carries the big statements; aluminium is the frame and the ground everything else sits on; springs hang between them and stand for spots in a class. A booked spot is a spring hooked on and pulled taut in its tension colour. An open spot is a slack steel spring above an empty, dashed hook. Density is low and the scale contrast is high. Hierarchy comes from size and width of one typeface, not from ornament. The material is never faked: there are no stitch lines, no bevels and no brushed-metal stripes. The upholstery and aluminium are flat colour fields with one soft drop shadow, and the springs are the only drawn objects.",
+    "keyCharacteristics": [
+      "Two grounds only: aubergine upholstery fields and cool aluminium.",
+      "Tension colour (red, yellow, green, blue) marks an engaged spring; at rest everything is steel or aluminium.",
+      "One family, Archivo, used across its width axis: expanded for display, normal for reading, condensed for stamped labels.",
+      "Pill rails and pill buttons; 2rem panels; round hooks."
+    ],
+    "rules": [
+      { "name": "The Engaged Colour Rule", "body": "Tension colour appears only on a spring that is hooked on. A spring at rest, or a spring used as an icon, is steel on aluminium or soft aubergine-white on upholstery.", "section": "colors" },
+      { "name": "The Two Grounds Rule", "body": "Every section sits on aluminium or on a full aubergine panel. No third ground, no gradients between them.", "section": "colors" },
+      { "name": "The Size Is Billing Rule", "body": "Importance is carried by size and width alone. Stats run as stacked lines of display type, heavy expanded figures followed by light normal-width words, with no separators or icons.", "section": "typography" }
+    ],
+    "dos": [
+      "Do set the biggest statements on full-width aubergine panels and everything else on aluminium.",
+      "Do colour a spring only when it is hooked on (The Engaged Colour Rule).",
+      "Do draw open spots as deliberately as booked ones: slack steel spring, dashed hook.",
+      "Do carry hierarchy with Archivo's width and weight, not with extra colour."
+    ],
+    "donts": [
+      "Don't fake material: no stitch lines, inset bevels or striped metal textures.",
+      "Don't use tension colours as decoration on resting icons or separators.",
+      "Don't add a third ground colour or gradients between the two grounds.",
+      "Don't set eyebrow labels above headings; the condensed label style belongs to the spring bar readout only."
+    ]
+  }
+}

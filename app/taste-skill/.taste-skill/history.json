@@ -1,0 +1,35 @@
+{
+ "palettes": [
+  "moss-sand"
+ ],
+ "types": [
+  "geist"
+ ],
+ "dealt": [
+  "geist",
+  "gabarito",
+  "host"
+ ],
+ "moments": [
+  {
+   "id": "word-highlight",
+   "at": "2026-11-11T08:40:41.416Z",
+   "seed": "f33c8343"
+  },
+  {
+   "id": "iris-opens",
+   "at": "2026-11-11T08:40:41.416Z",
+   "seed": "f33c8343"
+  },
+  {
+   "id": "marquee-row",
+   "at": "2026-11-11T08:40:58.117Z",
+   "seed": "83b7ea64"
+  },
+  {
+   "id": "counter-rolls",
+   "at": "2026-11-11T08:40:58.117Z",
+   "seed": "83b7ea64"
+  }
+ ]
+}
