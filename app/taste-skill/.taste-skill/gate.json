@@ -3,7 +3,7 @@
  "round": 2,
  "idle": 0,
  "errors": 0,
- "status": "fail",
+ "status": "pass",
  "history": [
   {
    "at": "2026-11-11T09:40:18.924Z",
@@ -40,6 +40,15 @@
    "round": 2,
    "reused": true,
    "stopHookActive": false
+  },
+  {
+   "at": "2026-11-11T09:58:16.202Z",
+   "mode": "manual",
+   "status": "pass",
+   "fails": 0,
+   "round": 2,
+   "reused": false,
+   "stopHookActive": false
   }
  ],
  "max": 3,
@@ -59,7 +68,7 @@
  "roundFree": false,
  "idleFree": false,
  "blockKey": null,
- "fp": "3027f2b4e6169efb",
+ "fp": "0d72351300c384de",
  "page": "http://localhost:3000/taste-skill",
  "found": {
   "fails": [
@@ -110,22 +119,6 @@
     "wheres": [
      "script:nth-of-type(6) > nextjs-portal"
     ]
-   },
-   {
-    "check": "section-gaps",
-    "where": "section#pricing / section#faq",
-    "msg": "312px between these sections, +64% against the median 190px",
-    "fix": "use one gap between sections (all within 25% of each other)",
-    "widths": [
-     390
-    ],
-    "from": "consistency",
-    "ids": [
-     "section-gaps"
-    ],
-    "wheres": [
-     "section#pricing / section#faq"
-    ]
    }
   ],
   "warns": [
@@ -143,16 +136,6 @@
     "check": "cut-text",
     "where": "div.hidden > div.relative.col-span-7 > div.grid > span.h-11.pt-1:nth-of-type(10) \"16:00\"",
     "msg": "cut 3px at the bottom by the overflow of section#proof > div.wrap.mx-auto > div.ui.app > div.relative.min-h-0:nth-of-type(2): a fragment run out through its panel's edge",
-    "fix": "give the text room: no overflow clipping a line, no line past its box",
-    "widths": [
-     1440
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "cut-text",
-    "where": "div.absolute.inset-x-6 > ul.mt-3.grid > li.flex.items-center:nth-of-type(3) > span.w-8 \"Wed\"",
-    "msg": "cut 13px at the bottom by the overflow of div.wrap.mx-auto > ol.mt-8.grid > li.card.card--open:nth-of-type(1) > div.panel.relative: a fragment run out through its panel's edge (and 5 more like it: \"18:00\", \"Bouldering Intro\", \"Link in bio · on your si\", \"Waitlist 2 waiting\", ...)",
     "fix": "give the text room: no overflow clipping a line, no line past its box",
     "widths": [
      1440
@@ -183,7 +166,7 @@
    {
     "check": "section-gaps",
     "where": "section#how / section#pricing",
-    "msg": "uneven space at the edge of a band: 106px outside its edge, 202px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+    "msg": "uneven space at the edge of a band: 106px outside its edge, 170px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
     "fix": "use one gap between sections (all within 25% of each other)",
     "widths": [
      1440,
@@ -267,16 +250,6 @@
     "where": "footer#contact > div.wrap.mx-auto > div.closing__cta > a.inline-flex.h-11",
     "msg": "the main action \"Start free trial\" is on 5 buttons and links: the nav, the hero and the closing call carry it; elsewhere a section has its own action",
     "fix": "the main action in the nav, the hero and the closing call; give the other sections their own action",
-    "widths": [
-     1440
-    ],
-    "from": "consistency"
-   },
-   {
-    "check": "share-meta",
-    "where": "head",
-    "msg": "the head lacks og:image: a shared link shows no picture or title of its own",
-    "fix": "copy the head block of starter.html: og tags, twitter:card, the icon and theme-color (references/system.md, Head)",
     "widths": [
      1440
     ],
@@ -434,28 +407,11 @@
   ],
   "crashed": [],
   "seconds": {
-   "consistency": 254,
+   "consistency": 252,
    "layout": 13
   }
  },
- "open": [
-  {
-   "check": "section-gaps",
-   "where": "section#pricing / section#faq",
-   "msg": "312px between these sections, +64% against the median 190px",
-   "fix": "use one gap between sections (all within 25% of each other)",
-   "widths": [
-    390
-   ],
-   "from": "consistency",
-   "ids": [
-    "section-gaps"
-   ],
-   "wheres": [
-    "section#pricing / section#faq"
-   ]
-  }
- ],
+ "open": [],
  "waived": [
   {
    "check": "copy-headline",
@@ -509,6 +465,6 @@
    "reason": "the Next.js dev-server indicator (nextjs-portal) the shared dev server injects; it is not part of the page and never ships in a build"
   }
  ],
- "warnCount": 30,
- "at": "2026-11-11T09:53:21.915Z"
+ "warnCount": 28,
+ "at": "2026-11-11T09:58:16.203Z"
 }
