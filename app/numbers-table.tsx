@@ -4,16 +4,21 @@ import { useState } from "react";
 import skills from "./skills.json";
 
 type Skill = (typeof skills)[number];
-type Key = "name" | "tokens" | "seconds" | "toolCalls" | "files" | "lines" | "deps";
+type Key = "name" | "tokens" | "seconds" | "toolCalls" | "lines" | "deps" | "copy" | "words" | "a11y" | "perf";
+
+const COPY_TOTAL = 47; // pieces of copy in the brief
 
 const columns: { key: Key; label: string }[] = [
   { key: "name", label: "Skill" },
   { key: "tokens", label: "Tokens" },
   { key: "seconds", label: "Time" },
   { key: "toolCalls", label: "Tool calls" },
-  { key: "files", label: "Files" },
   { key: "lines", label: "Lines" },
   { key: "deps", label: "Packages" },
+  { key: "copy", label: "Copy kept" },
+  { key: "words", label: "Words" },
+  { key: "a11y", label: "Accessibility" },
+  { key: "perf", label: "Performance" },
 ];
 
 const time = (s: number) => `${Math.floor(s / 60)}m ${String(s % 60).padStart(2, "0")}s`;
@@ -21,9 +26,11 @@ const time = (s: number) => `${Math.floor(s / 60)}m ${String(s % 60).padStart(2,
 const format = (skill: Skill, key: Key) =>
   key === "seconds"
     ? time(skill.seconds)
-    : typeof skill[key] === "number"
-      ? skill[key].toLocaleString("en-US")
-      : skill[key];
+    : key === "copy"
+      ? `${skill.copy}/${COPY_TOTAL}`
+      : typeof skill[key] === "number"
+        ? skill[key].toLocaleString("en-US")
+        : skill[key];
 
 export default function NumbersTable() {
   // null = the article's own order
@@ -41,7 +48,7 @@ export default function NumbersTable() {
     : skills;
 
   return (
-    <table className="w-full min-w-[40rem] border-collapse text-sm">
+    <table className="w-full min-w-[68rem] border-collapse text-sm">
       <thead>
         <tr className="border-b border-zinc-300">
           {columns.map(({ key, label }) => {
@@ -68,19 +75,25 @@ export default function NumbersTable() {
               </th>
             );
           })}
+          <th className="px-3 py-2 text-left font-medium text-zinc-500">
+            Run conditions
+          </th>
         </tr>
       </thead>
       <tbody>
         {rows.map((skill) => (
-          <tr key={skill.slug} className="border-b border-zinc-200">
+          <tr key={skill.slug} className="border-b border-zinc-200 align-top">
             {columns.map(({ key }) => (
               <td
                 key={key}
-                className={`px-3 py-2 ${key === "name" ? "font-medium" : "tabular-nums"}`}
+                className={`px-3 py-2 whitespace-nowrap ${key === "name" ? "font-medium" : "tabular-nums"}`}
               >
                 {format(skill, key)}
               </td>
             ))}
+            <td className="min-w-56 px-3 py-2 leading-5 text-zinc-600">
+              {skill.conditions}
+            </td>
           </tr>
         ))}
       </tbody>

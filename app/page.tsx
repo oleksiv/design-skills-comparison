@@ -80,10 +80,24 @@ function Check({ on }: { on: boolean }) {
   );
 }
 
-function Stars({ n }: { n: number }) {
+// slug -> [how far the page moved from Claude's default look (1-5, opinion), best use]
+const verdict: Record<string, [number, string]> = {
+  control: [2, "A quick, clean page when the look does not need to stand out."],
+  "frontend-design": [4, "The best value: a distinct look for little extra cost. A sensible default."],
+  "ui-ux-pro-max": [2, "A safe, accessible design system. Not for standing out."],
+  "taste-skill": [4, "Pages that must look like a real product site, when time and tokens are no concern."],
+  impeccable: [5, "The most original concept, with a review loop. Worth it for a flagship page."],
+  "web-design-guidelines": [2, "A final audit of any page for accessibility and interaction details."],
+  "ui-styling": [3, "Building on shadcn/ui with a slightly more refined finish."],
+  "ckw-design": [5, "A cohesive, art-directed page at a mid-range cost."],
+  "emil-design-eng": [3, "Motion and interaction polish, added on top of another skill."],
+  shadcn: [2, "Real, accessible components for an app. It does not supply a look."],
+};
+
+function Stars({ n, of = 3 }: { n: number; of?: number }) {
   return (
-    <span className="whitespace-nowrap text-lg leading-none" role="img" aria-label={`${n} of 3`}>
-      {[1, 2, 3].map((i) => (
+    <span className="whitespace-nowrap text-lg leading-none" role="img" aria-label={`${n} of ${of}`}>
+      {Array.from({ length: of }, (_, i) => i + 1).map((i) => (
         <span key={i} className={i <= n ? "text-amber-400" : "text-zinc-200"}>
           ★
         </span>
@@ -196,31 +210,35 @@ export default function Home() {
           </li>
           <li>
             Each page lives in its own folder and could not touch shared
-            files. Agents could type-check and lint, but could not run the
-            app, so most of them never saw their page rendered.
+            files. In the first round agents could type-check and lint but
+            not run the app, so they built without seeing the page.
           </li>
           <li>
             The output is kept as generated. The project built on the first
             try and nothing was fixed by hand.
           </li>
         </ol>
-        <p className={p}>Three things did not go to plan, and they matter:</p>
+        <p className={p}>
+          Conditions were not identical for every run. The numbers table
+          marks each one, and these are the differences:
+        </p>
         <ul className={`${list} list-disc`}>
           <li>
-            The Tailwind-only rule was added after the runs had started. Runs
-            that had already written custom CSS converted it, which cost them
-            extra tokens and time.
+            The Tailwind-only rule was added after the first round had
+            started. Six runs had already begun and adapted mid-way, which
+            cost them extra tokens and time.
           </li>
           <li>
-            Skills downloaded for this test were treated as text only, and
-            their bundled scripts were not executed. taste-skill and
-            impeccable both rely on scripts, so those two runs are a weaker
-            test of the skill.
+            taste-skill and impeccable were run twice. The first time their
+            bundled tooling was not executed, which made it a weak test of
+            two skills that depend on it. The second time the tooling ran and
+            the agent could open its page in a browser. The second runs are
+            the ones shown.
           </li>
           <li>
             ckw-design rendered its page outside the app and had the
-            screenshots reviewed before finishing. No other run saw its own
-            output.
+            screenshots reviewed before finishing. In the first round it was
+            the only run that saw its own output.
           </li>
         </ul>
         <p className={p}>
@@ -298,12 +316,11 @@ export default function Home() {
         <h2 className={h2}>The numbers</h2>
         <p className={p}>
           What each run cost and what it produced. Click a column heading to
-          sort by it. Lines of code count the
-          TypeScript and CSS files in the page&rsquo;s folder.
+          sort by it.
         </p>
       </div>
 
-      <div className="mx-auto mt-6 max-w-4xl overflow-x-auto px-5">
+      <div className="mx-auto mt-6 max-w-6xl overflow-x-auto px-5">
         <NumbersTable />
       </div>
 
@@ -325,23 +342,143 @@ export default function Home() {
             control row for the full cost of that page.
           </li>
           <li>
-            Time is wall-clock with ten agents running at once, so treat it
-            as a rough ranking.
+            Time is wall-clock, and the first round ran ten agents at once,
+            so treat it as a rough ranking.
+          </li>
+          <li>
+            Lines count the TypeScript and CSS the run wrote in its own
+            folder.
+          </li>
+          <li>
+            Copy kept is how many of the brief&rsquo;s 47 pieces of copy
+            appear on the page word for word. Most misses are small: pricing
+            features turned into a list, or a full stop dropped.
+          </li>
+          <li>
+            Words is all the text on the page. Most pages sit near 300, so a
+            much higher number is text the run added, mostly inside mock
+            screens.
+          </li>
+          <li>
+            Accessibility and performance are Lighthouse scores out of 100,
+            measured on a local production build with Lighthouse&rsquo;s
+            default mobile settings.
           </li>
         </ul>
 
-        <h2 className={h2}>Still to do</h2>
-        <ul className={`${list} list-disc`}>
-          <li>Lighthouse accessibility and performance scores for each page.</li>
-          <li>
-            A check of each page against the brief: every section present,
-            copy unchanged, and what each run added that was not asked for.
-          </li>
-          <li>
-            Written notes on typography, color and layout. Those will be
-            opinion and labeled as such.
-          </li>
-        </ul>
+        <h2 className={h2}>What the pages show</h2>
+        <p className={p}>
+          Everything above is measurement. This section is judgment. It was
+          drafted with Claude after looking at every rendered page, it rests
+          on one run per skill, and you may well disagree once you open the
+          pages yourself.
+        </p>
+        <p className={p}>
+          <strong className="font-semibold text-zinc-900">
+            Plain Claude is already competent, and three skills barely moved
+            it.
+          </strong>{" "}
+          The control page is clean and usable. It is also the look people
+          now call AI-made: a cream background, a serif headline with one
+          italic word, three icon cards, numbered circles, a centered quote.
+          ui-ux-pro-max, shadcn and ui-styling produced the same structure in
+          different colors. What they add is consistency, components and
+          accessibility, not a different look.
+        </p>
+        <p className={p}>
+          <strong className="font-semibold text-zinc-900">
+            The pages that look designed came from skills that force a
+            decision before any code.
+          </strong>{" "}
+          frontend-design, ckw-design and impeccable each make Claude commit
+          to a concept first: a studio timetable set in condensed signage
+          type, a mooring rope that runs through the whole page, a Pilates
+          spring bar you can click. All three dropped the three-card grid.
+          frontend-design did it for 99k tokens, the second cheapest build.
+        </p>
+        <p className={p}>
+          <strong className="font-semibold text-zinc-900">
+            More checking cost far more, and bought realism, not
+            originality.
+          </strong>{" "}
+          taste-skill&rsquo;s checks and finish gate took 79 minutes and 534k
+          tokens, over seven times the control. The result is the most
+          product-like page: every section shows a believable screen of the
+          app. It also drifted furthest from the brief, with 805 words on the
+          page and the fewest pieces of copy kept word for word.
+        </p>
+        <p className={p}>
+          <strong className="font-semibold text-zinc-900">
+            Measured quality was high almost everywhere.
+          </strong>{" "}
+          Seven of the ten pages score 100 for accessibility and every page
+          scores 93 or more for performance. The control loses points for one
+          low-contrast button. The audit skill noticed that button and left
+          it, because its rule list does not cover contrast. emil-design-eng
+          scored lowest at 94; its strength is motion, which screenshots and
+          scores do not show.
+        </p>
+        <p className={p}>
+          <strong className="font-semibold text-zinc-900">
+            No skill kept the copy fully intact.
+          </strong>{" "}
+          Asked to use the copy verbatim, every run changed something. The
+          closest were frontend-design and ckw-design at 45 of 47.
+        </p>
+      </div>
+
+      <div className="relative mx-auto mt-8 max-w-4xl overflow-x-auto px-5">
+        <table className="w-full min-w-[40rem] border-collapse text-sm">
+          <thead>
+            <tr className="border-b border-zinc-300 text-left text-zinc-500">
+              <th className="px-3 py-2 font-medium">Skill</th>
+              <th className="px-3 py-2 font-medium whitespace-nowrap">
+                Distinct from the default
+              </th>
+              <th className="px-3 py-2 font-medium">Best for</th>
+            </tr>
+          </thead>
+          <tbody>
+            {skills.map((skill) => (
+              <tr key={skill.slug} className="border-b border-zinc-200">
+                <td className="px-3 py-3 font-medium whitespace-nowrap">
+                  {skill.name}
+                </td>
+                <td className="px-3 py-3">
+                  <Stars n={verdict[skill.slug][0]} of={5} />
+                </td>
+                <td className="px-3 py-3 leading-6 text-zinc-700">
+                  {verdict[skill.slug][1]}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className={col}>
+        <p className={p}>
+          The stars are an opinion about one thing: how far the page moved
+          from the look Claude produces unaided. They are not a quality
+          score.
+        </p>
+        <p className={p}>
+          <strong className="font-semibold text-zinc-900">
+            Which one for a production page that should not look AI-made?
+          </strong>{" "}
+          The skills that set a direction are the ones that changed the
+          outcome. frontend-design gives the best return. ckw-design and
+          impeccable go further and include a review step, for two to four
+          times the control&rsquo;s cost. taste-skill produces the most
+          convincing product imagery, at a cost that is hard to justify for
+          one page.
+        </p>
+        <p className={p}>
+          The component skills and the audit skill solve a different problem,
+          and they should combine well with a direction skill: one for the
+          look, shadcn for the components, web-design-guidelines as a last
+          pass. That combination was not tested here.
+        </p>
 
         <h2 className={h2}>Limits</h2>
         <ul className={`${list} list-disc`}>
@@ -360,8 +497,15 @@ export default function Home() {
           <li>
             The skills were read from disk by an agent, not loaded through
             Claude Code&rsquo;s own skill mechanism, and they ran under rules
-            (one folder, no running the app) that some of them were not
-            written for.
+            (one folder, Tailwind only, no photographs) that some of them
+            were not written for. taste-skill in particular is built around
+            its own page kit and real photographs.
+          </li>
+          <li>
+            The runs were not equal. Two skills got a second run with their
+            tooling and a view of their page, and six had a rule arrive
+            mid-run. The cost figures compare what happened, not a controlled
+            race.
           </li>
         </ul>
 

@@ -9,7 +9,12 @@
     "toolCalls": 16,
     "files": 1,
     "lines": 460,
-    "deps": 0
+    "deps": 0,
+    "copy": 43,
+    "words": 304,
+    "a11y": 96,
+    "perf": 98,
+    "conditions": "As planned"
   },
   {
     "slug": "frontend-design",
@@ -21,7 +26,12 @@
     "toolCalls": 21,
     "files": 2,
     "lines": 411,
-    "deps": 0
+    "deps": 0,
+    "copy": 45,
+    "words": 297,
+    "a11y": 100,
+    "perf": 98,
+    "conditions": "Tailwind rule arrived mid-run. Before converting: 79.5k tokens, 3m 18s"
   },
   {
     "slug": "ui-ux-pro-max",
@@ -33,31 +43,46 @@
     "toolCalls": 36,
     "files": 1,
     "lines": 519,
-    "deps": 0
+    "deps": 0,
+    "copy": 40,
+    "words": 299,
+    "a11y": 100,
+    "perf": 98,
+    "conditions": "Tailwind rule arrived mid-run"
   },
   {
     "slug": "taste-skill",
     "name": "taste-skill",
     "source": "Leonxlnx/taste-skill",
-    "note": "Rules aimed at overriding the generic look of LLM-made frontends. Its bundled scripts were not run, so its random layout picks were made by hand from its own lists.",
-    "tokens": 255786,
-    "seconds": 676,
-    "toolCalls": 41,
-    "files": 4,
-    "lines": 1034,
-    "deps": 0
+    "note": "A build system with its own browser checks and a finish gate. This is its second run, with its scripts enabled; the gate passed on the third and last round.",
+    "tokens": 533813,
+    "seconds": 4757,
+    "toolCalls": 239,
+    "files": 5,
+    "lines": 1388,
+    "deps": 0,
+    "copy": 37,
+    "words": 805,
+    "a11y": 100,
+    "perf": 93,
+    "conditions": "Second run: scripts enabled, saw its own page"
   },
   {
     "slug": "impeccable",
     "name": "impeccable",
     "source": "pbakaus/impeccable",
-    "note": "Paul Bakaus's skill, built around craft, critique and polish. The run included two code reviews by a second agent, as the skill prescribes.",
-    "tokens": 167001,
-    "seconds": 764,
-    "toolCalls": 56,
-    "files": 4,
-    "lines": 624,
-    "deps": 0
+    "note": "Paul Bakaus's skill, built around craft, critique and polish. This is its second run, with its engine enabled; a separate reviewer signed it off after two rounds of fixes.",
+    "tokens": 260533,
+    "seconds": 1151,
+    "toolCalls": 141,
+    "files": 2,
+    "lines": 575,
+    "deps": 0,
+    "copy": 40,
+    "words": 287,
+    "a11y": 100,
+    "perf": 98,
+    "conditions": "Second run: engine enabled, saw its own page"
   },
   {
     "slug": "web-design-guidelines",
@@ -69,7 +94,12 @@
     "toolCalls": 13,
     "files": 1,
     "lines": 507,
-    "deps": 0
+    "deps": 0,
+    "copy": 43,
+    "words": 300,
+    "a11y": 96,
+    "perf": 98,
+    "conditions": "Audit of the control page only"
   },
   {
     "slug": "ui-styling",
@@ -81,19 +111,29 @@
     "toolCalls": 37,
     "files": 7,
     "lines": 869,
-    "deps": 5
+    "deps": 5,
+    "copy": 43,
+    "words": 282,
+    "a11y": 100,
+    "perf": 97,
+    "conditions": "Tailwind rule arrived mid-run"
   },
   {
     "slug": "ckw-design",
     "name": "ckw-design",
     "source": "ckw-design plugin",
-    "note": "A multi-part skill: design thinking, system, spatial layout and visual philosophy. The only run that rendered its own page and had the screenshots reviewed before finishing.",
+    "note": "A multi-part skill: design thinking, system, spatial layout and visual philosophy. It rendered its own page and had the screenshots reviewed before finishing.",
     "tokens": 155032,
     "seconds": 672,
     "toolCalls": 65,
     "files": 3,
     "lines": 681,
-    "deps": 0
+    "deps": 0,
+    "copy": 45,
+    "words": 304,
+    "a11y": 100,
+    "perf": 98,
+    "conditions": "Tailwind rule arrived mid-run. Saw its own page"
   },
   {
     "slug": "emil-design-eng",
@@ -105,7 +145,12 @@
     "toolCalls": 16,
     "files": 3,
     "lines": 798,
-    "deps": 0
+    "deps": 0,
+    "copy": 43,
+    "words": 360,
+    "a11y": 94,
+    "perf": 98,
+    "conditions": "Tailwind rule arrived mid-run"
   },
   {
     "slug": "shadcn",
@@ -117,6 +162,11 @@
     "toolCalls": 59,
     "files": 11,
     "lines": 1328,
-    "deps": 7
+    "deps": 7,
+    "copy": 43,
+    "words": 299,
+    "a11y": 100,
+    "perf": 96,
+    "conditions": "Tailwind rule arrived mid-run"
   }
 ]
