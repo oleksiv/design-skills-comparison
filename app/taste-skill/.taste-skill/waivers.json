@@ -1,0 +1,6 @@
+[
+  { "check": "copy-headline", "target": "h1#hero-h", "reason": "the brief fixes the headline verbatim (Fill every class without living in your inbox); the category is named in the sub-line and the title" },
+  { "check": "effect-kind", "target": "section#how", "reason": "the dealt iris-opens moment runs, ported into the page's own React component: the brief allows Tailwind utilities only, so the kit's moment.css and loader cannot be linked and the checker never sees assets/moments/iris-opens/moment.js load" },
+  { "check": "scroll-linked", "target": "h2#how-h", "reason": "this is the dealt iris-opens moment inside its own section (data-moment on section#how), ported because the brief forbids the kit's stylesheet; the checker does not count the port as a moment" },
+  { "check": "focus-visible", "target": "nextjs-portal", "reason": "the Next.js dev-server indicator (nextjs-portal) the shared dev server injects; it is not part of the page and never ships in a build" }
+]

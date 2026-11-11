@@ -194,8 +194,10 @@ export function HeroArt({ label, window: win }: { label: string; window: ReactNo
       onPointerEnter={restart}
     >
       <div ref={ground} className="absolute inset-0 -z-10 overflow-hidden rounded-[inherit]" data-fx="painterly-landscape" aria-hidden="true" />
-      <div className="absolute top-4 left-4 w-[calc(100%-16px+28px)] sm:top-8 sm:left-8 sm:w-[calc(100%-32px+28px)] lg:top-16 lg:left-16 lg:w-[calc(100%-64px+28px)]" aria-hidden="true">
-        {win}
+      <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,#000_calc(100%-96px),transparent)]" aria-hidden="true">
+        <div className="absolute top-4 left-4 w-[calc(100%-16px+28px)] sm:top-8 sm:left-8 sm:w-[calc(100%-32px+28px)] lg:top-16 lg:left-16 lg:w-[calc(100%-64px+28px)]">
+          {win}
+        </div>
       </div>
       <div
         className="absolute bottom-8 left-8 hidden w-[300px] rounded-xl border border-(--ui-border) bg-(--ui-bg) p-4 text-(--ui-ink) shadow-(--ui-shadow) sm:block"
@@ -315,7 +317,7 @@ export function FeatureTabs({ head, tabs }: { head: ReactNode; tabs: { title: st
               tabIndex={active === i ? 0 : -1}
               onClick={() => setActive(i)}
               className={`relative h-12 w-full cursor-pointer rounded-lg border px-4 text-left text-base font-medium transition-[color,background-color,border-color] duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--p-action) ${
-                active === i ? "border-transparent text-(--p-action-ink)" : "border-(--line-strong) text-(--p-ink) hover:bg-(--line)"
+                active === i ? "border-(--p-action) text-(--p-action-ink)" : "border-(--line-strong) text-(--p-ink) hover:bg-(--line)"
               }`}
             >
               {t.title}

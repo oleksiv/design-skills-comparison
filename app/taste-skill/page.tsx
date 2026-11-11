@@ -151,7 +151,7 @@ const HOURS = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
 function AppFrame() {
   return (
     <div
-      className="ui app frame mt-8 grid h-[300px] grid-cols-1 overflow-hidden rounded-2xl border border-(--ui-border) bg-(--ui-bg) text-(--ui-ink) shadow-(--ui-shadow) sm:mt-12 sm:h-[520px] sm:grid-rows-[252px_minmax(0,1fr)] lg:h-auto lg:min-h-0 lg:flex-1 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:grid-rows-1 xl:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]"
+      className="ui app frame mt-8 grid h-[420px] grid-cols-1 overflow-hidden rounded-2xl border border-(--ui-border) bg-(--ui-bg) text-(--ui-ink) shadow-(--ui-shadow) sm:mt-12 sm:h-[520px] sm:grid-rows-[252px_minmax(0,1fr)] lg:h-auto lg:min-h-0 lg:flex-1 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:grid-rows-1 xl:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]"
       role="img"
       aria-label="Mooring's bookings list beside the week's class schedule for Low Tide Yoga, with full classes marked"
     >
@@ -198,7 +198,7 @@ function AppFrame() {
         </div>
         {/* phone: today as a list */}
         <ul className="sm:hidden">
-          {TODAY.slice(0, 6).map(([name, sub, , chip, tone]) => (
+          {TODAY.map(([name, sub, , chip, tone]) => (
             <li key={name} className="flex items-center gap-3 border-b border-(--ui-line) px-4 py-2.5">
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-[13px] font-medium">{name}</span>
@@ -427,7 +427,7 @@ function PaymentsHub() {
   const lines = ["M150 50 C190 50 190 120 222 120", "M150 120 L222 120", "M150 190 C190 190 190 120 222 120", "M298 120 L340 120"];
   return (
     <div
-      className="frame group relative mt-8 aspect-square overflow-hidden rounded-[20px] bg-(--ground-bg) sm:aspect-[4/1] lg:mt-10 lg:aspect-square"
+      className="frame group relative mt-8 aspect-square overflow-hidden rounded-[20px] bg-(--ground-bg) sm:aspect-[4/1] lg:mt-10 lg:aspect-[3/4]"
       role="img"
       aria-label="Payments from Stripe or Square and members from a CSV file going into Mooring, with payouts to the studio's own account"
     >
@@ -485,10 +485,13 @@ function ImportPanel() {
     ["Mira Holm", "Climbing day pass", "1 left"],
     ["Jonah Price", "10-class pack", "9 left"],
     ["Noor Haddad", "Drop-in", "Paid"],
+    ["Sam Ruiz", "10-class pack", "4 left"],
+    ["Lea Brandt", "Monthly membership", "Active"],
+    ["Tomás Lind", "5-class pack", "5 left"],
   ];
   return (
     <div
-      className="frame relative mt-8 aspect-square overflow-hidden rounded-[20px] bg-(--ground-bg) sm:aspect-[3/1] lg:mt-12 lg:aspect-square"
+      className="frame relative mt-8 aspect-[2/3] overflow-hidden rounded-[20px] bg-(--ground-bg) sm:aspect-[3/1] lg:mt-12 lg:aspect-square"
       role="img"
       aria-label="A members file imported into Mooring: 48 of 48 members matched to their class packs and memberships"
     >
@@ -646,25 +649,24 @@ export default function Page() {
         {/* 2 · social proof, with the product's app frame */}
         <section id="proof" className={`${box} [--h:1] [--hm:1]`} aria-labelledby="proof-h">
           <div className={`${wrap} flex h-full flex-col`}>
-            <div className="grid grid-cols-12 items-start gap-x-6">
-              <h2 id="proof-h" className={`${h2} col-span-12 lg:col-span-5`}>
-                Trusted by 1,200 independent studios
-              </h2>
-              <ul className="col-span-12 mt-8 grid grid-cols-3 gap-3 sm:gap-6 lg:col-span-6 lg:col-start-7 lg:mt-0">
+            <h2 id="proof-h" className={h2}>
+              Trusted by 1,200 independent studios
+            </h2>
+            <ul className="mt-8 grid grid-cols-3 gap-x-3 sm:gap-x-6 lg:mt-10">
                 {[
                   ["3.4M", "classes booked"],
                   ["38%", "fewer no-shows"],
                   ["6 hours", "saved per week"],
                 ].map(([v, l]) => (
-                  <li key={l}>
+                  <li key={l} className="border-t border-(--line) pt-4">
+
                     <p className="text-[clamp(28px,.952vw+24.3px,38px)] leading-none font-medium tracking-[-0.035em] whitespace-nowrap tabular-nums [text-box:trim-start_cap_alphabetic]">
                       {v}
                     </p>
                     <p className="mt-3 text-base leading-6 text-(--p-muted)">{l}</p>
                   </li>
                 ))}
-              </ul>
-            </div>
+            </ul>
             <AppFrame />
           </div>
         </section>
@@ -688,7 +690,7 @@ export default function Page() {
         {/* 4 · how it works: the dark band, iris-opens; the testimonial merged as its last block */}
         <section
           id="how"
-          className={`${box} bg-(--p-inv-bg) text-(--p-inv-ink) [--h:1] [--hm:2] sm:[--h:2] lg:[--h:1]`}
+          className={`${box} bg-(--p-inv-bg) text-(--p-inv-ink) [--h:1] [--hm:2]`}
           aria-labelledby="how-h"
           data-moment="iris-opens"
           data-moment-opts='{"from": "base"}'
@@ -698,23 +700,31 @@ export default function Page() {
             <h2 id="how-h" data-iris-block className={h2}>
               How it works
             </h2>
-            <ol className="mt-8 grid grid-cols-1 gap-8 sm:gap-10 lg:mt-12 lg:grid-cols-3 lg:gap-6">
+            <ol className="mt-8 grid grid-cols-1 gap-8 lg:mt-12 lg:grid-cols-3 lg:gap-6">
               {STEPS.map((s, i) => (
-                <li key={s.title} data-iris-block className="card card--open flex flex-col">
+                <li
+                  key={s.title}
+                  data-iris-block
+                  className="card card--open flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-[auto_auto_1fr] sm:gap-x-6 lg:flex"
+                >
                   <span className="grid size-7 place-items-center rounded-full border border-(--inv-line-strong) text-[13px] font-medium tabular-nums">{i + 1}</span>
                   <h3 className="mt-4 text-[18px] leading-7 font-medium lg:text-[20px]">{s.title}</h3>
                   <p className="mt-1 text-base leading-[26px]">{s.text}</p>
-                  <div className="panel relative mt-5 h-[184px] overflow-hidden rounded-[20px] bg-(--ground-bg) xl:h-[200px]" role="img" aria-label={s.label}>
+                  <div
+                    className="panel relative mt-5 h-[184px] overflow-hidden rounded-[20px] bg-(--ground-bg) sm:col-start-2 sm:row-span-3 sm:row-start-1 sm:mt-0 sm:h-[168px] lg:mt-5 lg:h-[160px] xl:h-[192px]"
+                    role="img"
+                    aria-label={s.label}
+                  >
                     {s.panel}
                   </div>
                 </li>
               ))}
             </ol>
-            <figure data-iris-block className="mt-12 grid grid-cols-12 items-end gap-x-6 lg:mt-16">
-              <blockquote className="col-span-12 text-[clamp(24px,.381vw+22.5px,28px)] leading-[1.3] font-medium tracking-[-0.02em] text-balance lg:col-span-8">
+            <figure data-iris-block className="mt-10 xl:mt-14">
+              <blockquote className="max-w-[860px] text-[clamp(24px,.381vw+22.5px,28px)] leading-[1.3] font-medium tracking-[-0.02em] text-balance">
                 “We went from forty DMs a day to zero. Classes fill themselves now.”
               </blockquote>
-              <div className="person col-span-12 mt-6 flex items-center gap-3 lg:col-span-4 lg:col-start-9 lg:mt-0">
+              <div className="person mt-6 flex items-center gap-3">
                 <span className="grid size-10 place-items-center rounded-full bg-(--ground-bg) text-sm font-medium text-(--ground-ink)" aria-hidden="true">
                   AR
                 </span>
@@ -729,7 +739,7 @@ export default function Page() {
         {/* 5 · pricing-two */}
         <section id="pricing" className={`${box} [--h:1] [--hm:2]`} aria-labelledby="pricing-h">
           <div className={wrap}>
-            <div className="grid grid-cols-12 items-start gap-x-6 gap-y-6">
+            <div className="grid grid-cols-12 items-stretch gap-x-6 gap-y-6">
               <div className="col-span-12 lg:col-span-4">
                 <h2 id="pricing-h" className={h2}>
                   Pricing
@@ -776,7 +786,7 @@ export default function Page() {
               </div>
               <dl className="faq col-span-12 mt-8 lg:col-span-6 lg:col-start-7 lg:mt-0">
                 {FAQ.map(([q, a]) => (
-                  <div key={q} className="faq__item border-b border-(--line) py-6 first:pt-0">
+                  <div key={q} className="faq__item border-b border-(--line) py-7 first:pt-0 sm:py-6">
                     <dt className="text-[18px] leading-7 font-medium lg:text-[20px]">{q}</dt>
                     <dd className="mt-2 text-base leading-[26px]">{a}</dd>
                   </div>
